@@ -16,4 +16,4 @@ else
             if (coordinateX > 0 && coordinateY < 0)
                 Console.WriteLine("Точка в 4 четверти");
             else
-                Console.WriteLine("Точка на пересечении линии координат");
+                Console.WriteLine("Точка на оси координат");
