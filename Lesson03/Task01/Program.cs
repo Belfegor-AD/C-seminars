@@ -1,4 +1,4 @@
-﻿int[] CreateArray(int size)
+﻿int[] CreateArray(int size, int beginRangeArray, int endRangeArray)
 {
     int[] array = new int[size];
     for (int i = 0; i < array.Length; i++)
@@ -17,12 +17,12 @@ void PrintArray(int[] fullArray)
     }
 }
 
-int FindInArray(int[] fullArray, int beginRange, int endRange)
+int FindInArray(int[] fullArray, int beginRangeFinde, int endRangeFinde)
 {
     int count = 0;
     foreach (int item in fullArray)
     {
-        if (item >= beginRange && item <= endRange)
+        if (item >= beginRangeFinde && item <= endRangeFinde)
             count++;
     }
     return count;
@@ -30,8 +30,9 @@ int FindInArray(int[] fullArray, int beginRange, int endRange)
 
 Console.Clear();
 int sizeArray = 10;
-int beginRange = 20, endRange = 90;
-int[] array = CreateArray(sizeArray);
+int beginRangeFinde = 20, endRangeFinde = 90;
+int beginRangeArray = 1, endRangeArray = 100;
+int[] array = CreateArray(sizeArray, beginRangeArray, endRangeArray);
 PrintArray(array);
 Console.WriteLine();
-Console.Write($"Количество элементов в диапазоне [{beginRange},{endRange}]: " + FindInArray(array, beginRange, endRange));
+Console.Write($"Количество элементов в диапазоне [{beginRangeFinde},{endRangeFinde}]: " + FindInArray(array, beginRangeFinde, endRangeFinde));
