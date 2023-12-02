@@ -1,11 +1,11 @@
 ﻿// Количество элементов массива, значения которых лежат в отрезке.
 
-int[] CreateArray(int size, int beginRangeArray, int endRangeArray)
+int[] CreateArray(int size, int begin, int end)
 {
     int[] array = new int[size];
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(beginRangeArray, endRangeArray);
+        array[i] = new Random().Next(begin, end);
     }
     return array;
 }
@@ -19,12 +19,12 @@ void PrintArray(int[] fullArray)
     }
 }
 
-int FindInArray(int[] fullArray, int beginRangeFinde, int endRangeFinde)
+int FindInArray(int[] fullArray, int beginFinde, int endFinde)
 {
     int count = 0;
     foreach (int item in fullArray)
     {
-        if (item >= beginRangeFinde && item <= endRangeFinde)
+        if (item >= beginFinde && item <= endFinde)
             count++;
     }
     return count;

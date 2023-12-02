@@ -1,8 +1,8 @@
-﻿// Количество чётных элементов в массиве.
+﻿// Разность между макс. и мин. значением массива.
 
-int[] CreateArray(int size)
+double[] CreateArray(int size)
 {
-    double[] array = new int[size];
+    double[] array = new double[size];
     for (int i = 0; i < array.Length; i++)
     {
         array[i] = new Random().NextDouble();
@@ -10,30 +10,44 @@ int[] CreateArray(int size)
     return array;
 }
 
-void PrintArray(int[] fullArray)
+void PrintArray(double[] fullArray)
 {
     Console.Write($"Массив чисел: ");
-    foreach (int item in fullArray)
+    foreach (double item in fullArray)
     {
-        Console.Write(item + " ");
+        Console.Write($"{item:f3}  ");
     }
 }
 
-int FindInArray(int[] fullArray)
+double FindMaxInArray(double[] fullArray)
 {
-    int count = 0;
-    foreach (int item in fullArray)
+    double max = fullArray[0];
+    foreach (double item in fullArray)
     {
-        if (item % 2 == 0)
-            count++;
+        if (item > max)
+            max = item;
     }
-    return count;
+
+    return max;
+}
+
+double FindMinInArray(double[] fullArray)
+{
+    double min = fullArray[0];
+    foreach (double item in fullArray)
+    {
+        if (item < min)
+            min = item;
+    }
+
+    return min;
 }
 
 Console.Clear();
 int sizeArray = 10;
-int beginRangeArray = 1, endRangeArray = 100;
-int[] array = CreateArray(sizeArray, beginRangeArray, endRangeArray);
+double[] array = CreateArray(sizeArray);
+double maxValue = FindMaxInArray(array);
+double minValue = FindMinInArray(array);
 PrintArray(array);
 Console.WriteLine();
-Console.Write($"Количество чётных элементов в массиве: " + FindInArray(array));
+Console.Write($"Разность макс. и мин. значения массива: {maxValue:f3} - {minValue:f3} = {(maxValue - minValue):f3}");
