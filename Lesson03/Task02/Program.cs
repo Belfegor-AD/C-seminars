@@ -1,4 +1,4 @@
-﻿// Количество элементов массива, значения которых лежат в отрезке.
+﻿// Количество чётных элементов в массиве.
 
 int[] CreateArray(int size, int beginRangeArray, int endRangeArray)
 {
@@ -19,12 +19,12 @@ void PrintArray(int[] fullArray)
     }
 }
 
-int FindInArray(int[] fullArray, int beginRangeFinde, int endRangeFinde)
+int FindInArray(int[] fullArray)
 {
     int count = 0;
     foreach (int item in fullArray)
     {
-        if (item >= beginRangeFinde && item <= endRangeFinde)
+        if (item % 2 == 0)
             count++;
     }
     return count;
@@ -33,8 +33,7 @@ int FindInArray(int[] fullArray, int beginRangeFinde, int endRangeFinde)
 Console.Clear();
 int sizeArray = 10;
 int beginRangeArray = 1, endRangeArray = 100;
-int beginRangeFinde = 20, endRangeFinde = 90;
 int[] array = CreateArray(sizeArray, beginRangeArray, endRangeArray);
 PrintArray(array);
 Console.WriteLine();
-Console.Write($"Количество элементов в диапазоне [{beginRangeFinde},{endRangeFinde}]: " + FindInArray(array, beginRangeFinde, endRangeFinde));
+Console.Write($"Количество чётных элементов в массиве: " + FindInArray(array));
