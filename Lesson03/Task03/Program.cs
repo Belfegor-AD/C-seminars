@@ -1,11 +1,11 @@
 ﻿// Количество чётных элементов в массиве.
 
-int[] CreateArray(int size, int beginRangeArray, int endRangeArray)
+int[] CreateArray(int size)
 {
-    int[] array = new int[size];
+    double[] array = new int[size];
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(beginRangeArray, endRangeArray);
+        array[i] = new Random().NextDouble();
     }
     return array;
 }
