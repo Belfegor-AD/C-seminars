@@ -10,15 +10,6 @@ double[] CreateArray(int size)
     return array;
 }
 
-void PrintArray(double[] fullArray)
-{
-    Console.Write($"Массив чисел: ");
-    foreach (double item in fullArray)
-    {
-        Console.Write($"{item:f3}  ");
-    }
-}
-
 double FindMaxInArray(double[] fullArray)
 {
     double max = fullArray[0];
@@ -43,11 +34,20 @@ double FindMinInArray(double[] fullArray)
     return min;
 }
 
+void PrintArray(double[] fullArray)
+{
+    Console.Write($"Массив чисел: ");
+    foreach (double item in fullArray)
+    {
+        Console.Write($"{item:f3}  ");
+    }
+    Console.WriteLine();
+}
+
 Console.Clear();
 int sizeArray = 10;
 double[] array = CreateArray(sizeArray);
 double maxValue = FindMaxInArray(array);
 double minValue = FindMinInArray(array);
 PrintArray(array);
-Console.WriteLine();
 Console.Write($"Разность макс. и мин. значения массива: {maxValue:f3} - {minValue:f3} = {(maxValue - minValue):f3}");
