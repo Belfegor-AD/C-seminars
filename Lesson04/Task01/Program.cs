@@ -1,11 +1,5 @@
 ﻿// Напишите программу, которая бесконечно запрашивает целые числа с консоли.
 // Программа завершается при вводе символа ‘q’ или при вводе числа, сумма цифр которого чётная.
-Console.Clear();
-string number = " ";
-while (Exit(number))
-{
-    Console.WriteLine("Еще попытка.");
-}
 
 bool Exit(string num)
 {
@@ -28,4 +22,13 @@ bool Exit(string num)
     Console.WriteLine(" не чётная");
     return true;
 }
+
+Console.Clear();
+string number = " ";
+while (Exit(number))
+{
+    Console.WriteLine("Еще попытка.");
+}
+
+
     
