@@ -24,7 +24,7 @@ bool Exit(string num)
 }
 
 Console.Clear();
-string number = " ";
+string number = string.Empty;
 while (Exit(number))
 {
     Console.WriteLine("Еще попытка.");
