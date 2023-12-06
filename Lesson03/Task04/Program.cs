@@ -36,7 +36,7 @@ void PrintArray(int[] fullArray)
 
 
 Console.Clear();
-int number = new Random().Next(1, 100000);
+int number = new Random().Next(1, 100001);
 int lenght = LengthOfNumber(number);
 int[] array = ConvertNumberToArray(number, lenght);
 Console.WriteLine("Заланное число:" + number);
