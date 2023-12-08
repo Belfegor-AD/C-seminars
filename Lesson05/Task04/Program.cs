@@ -3,48 +3,8 @@
 //  расположен наименьший элемент массива. Под удалением понимается 
 //  создание нового двумерного массива без строки и столбца
 
-
-void FillMatrix(int[,] matrix, int[] range)
+int[,] CreateNewMatrix(int[,] matrix, int[] indexMin)
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = new Random().Next(range[0], range[1]);
-        }
-    }
-}
-
-void PrintMatrix (int[,] matrix)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            Console.Write($"{matrix[i, j]}\t");
-        }
-        Console.WriteLine();
-    }
-}
-
-int[,] FinderMinRow(int[,] matrix)
-{
-    int[] indexMin = new int[2];
-    int min = int.MaxValue;
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            if (matrix[i, j] < min)
-            {
-                min = matrix[i, j];
-                indexMin[0] = i;
-                indexMin[1] = j;
-            }
-        }
-    }
-    Console.WriteLine($"Позиция минимального элемента: {indexMin[0]}, {indexMin[1]}");
-    
     int[,] newMatrix = new int[matrix.GetLength(0)-1, matrix.GetLength(1)-1];
     int newRow = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -67,6 +27,49 @@ int[,] FinderMinRow(int[,] matrix)
     return newMatrix;
 }
 
+void FillMatrix(int[,] matrix, int[] range)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = new Random().Next(range[0], range[1]);
+        }
+    }
+}
+
+int[] FinderMinElem(int[,] matrix)
+{
+    int[] indexMin = new int[2];
+    int min = int.MaxValue;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i, j] < min)
+            {
+                min = matrix[i, j];
+                indexMin[0] = i;
+                indexMin[1] = j;
+            }
+        }
+    }
+    Console.WriteLine($"Позиция минимального элемента: {indexMin[0]}, {indexMin[1]}");
+    return indexMin;
+}
+
+void PrintMatrix (int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            Console.Write($"{matrix[i, j]}\t");
+        }
+        Console.WriteLine();
+    }
+}
+
 
 Console.Clear();
 int[,] matrix = new int[5, 10]; //размер двумерного массива
@@ -75,5 +78,4 @@ FillMatrix(matrix, rangeNumbers);
 Console.WriteLine("Изначальный массив:");
 PrintMatrix(matrix);
 Console.WriteLine($"Новый массив: ");
-int[,] newMatr = FinderMinRow(matrix);
-PrintMatrix(newMatr);
+PrintMatrix(CreateNewMatrix(matrix, FinderMinElem(matrix)));
