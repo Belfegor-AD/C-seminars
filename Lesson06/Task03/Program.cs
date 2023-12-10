@@ -2,9 +2,9 @@
 
 string ReversStr(string strLower)
 {
-    string newStr = string.Concat(strLower.ToArray().Reverse().ToArray());
-    Console.WriteLine($"Перевёрнутое слово: {newStr}");
-    return newStr;
+    string reverseStr = string.Concat(strLower.ToArray().Reverse().ToArray());
+    Console.WriteLine($"Перевёрнутое слово: {reverseStr}");
+    return reverseStr;
 }
 
 
