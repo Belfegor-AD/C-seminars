@@ -12,7 +12,7 @@ int Akkerman(int m, int n){
 }
 
 Console.Clear();
-Console.WriteLine("Функция Аккермана(m, m).");
+Console.WriteLine("Функция Аккермана(m, n).");
 Console.Write("Введите число M: ");
 int m = int.Parse(Console.ReadLine()!);
 Console.Write("Введите число N: ");
